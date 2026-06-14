@@ -1,0 +1,22 @@
+# Test profile. The datasource is provided dynamically by Testcontainers
+# (see AbstractIntegrationTest), so no static datasource URL is defined here.
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  cache:
+    type: none
+
+app:
+  jwt:
+    secret: test-secret-key-that-is-long-enough-for-hs256-algorithm
+    access-token-expiration-ms: 900000
+    refresh-token-expiration-ms: 604800000
+    issuer: projectmind-api-test
+
+logging:
+  level:
+    com.justin.projectmind: INFO
+    org.testcontainers: INFO
